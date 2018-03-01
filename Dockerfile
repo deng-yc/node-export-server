@@ -16,3 +16,5 @@ RUN npm install
 COPY . .
 
 EXPOSE 8080
+
+CMD ["node","./bin/cli.js --host 0.0.0.0 --port 8080"]
