@@ -17,4 +17,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD [ "npm", "run","install","--port 8080"]
+CMD [ "node", "./bin/cli.js","--port 8080"]
