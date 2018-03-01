@@ -1,5 +1,5 @@
 FROM node:8
-
+ENV ACCEPT_HIGHCHARTS_LICENSE yes
 # Create app directory
 WORKDIR /app
 
@@ -15,7 +15,7 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-RUN npm run install
+RUN node ./build.js
 
 EXPOSE 8080
 
