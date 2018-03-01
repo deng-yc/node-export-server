@@ -17,4 +17,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD [ "node", "./bin/www","--host 0.0.0.0","--port 8080"]
+CMD [ "node", "./bin/www"]
