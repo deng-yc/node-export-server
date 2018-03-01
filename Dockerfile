@@ -1,5 +1,4 @@
 FROM node:8
-ENV ACCEPT_HIGHCHARTS_LICENSE yes
 
 # Create app directory
 WORKDIR /app
@@ -7,13 +6,15 @@ WORKDIR /app
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
+COPY ./package*.json ./
 
-RUN npm install highcharts-export-server -g
-
+RUN npm install
 # If you are building your code for production
 # RUN npm install --only=production
 
 # Bundle app source
+COPY . .
+
 EXPOSE 8080
 
-CMD [ "highcharts-export-server","--host 127.0.0.1","--port 8080"]
+CMD [ "node", "./bin/www","--host 0.0.0.0","--port 8080"]
