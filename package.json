@@ -10,7 +10,8 @@
     "highcharts-export-server": "./bin/cli.js"
   },
   "scripts": {
-    "install": "node ./build.js"
+    "install": "node ./build.js",
+    "start": "node ./bin/cli.js --host 0.0.0.0 --port 8080"
   },
   "main": "lib/index.js",
   "license": "MIT",
