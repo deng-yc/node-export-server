@@ -1,4 +1,5 @@
 FROM node:8
+ENV ACCEPT_HIGHCHARTS_LICENSE yes
 
 # Create app directory
 WORKDIR /app
@@ -8,13 +9,12 @@ WORKDIR /app
 # where available (npm@5+)
 COPY ./package*.json ./
 
-RUN npm install
+RUN npm install highcharts-export-server -g
+
 # If you are building your code for production
 # RUN npm install --only=production
 
 # Bundle app source
-COPY . .
-
 EXPOSE 8080
 
-CMD [ "node", "./bin/cli.js","--host localhost","--port 8080"]
+CMD [ "highcharts-export-server","--host 127.0.0.1","--port 8080"]
